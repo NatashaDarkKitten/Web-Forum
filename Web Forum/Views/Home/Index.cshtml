@@ -1,0 +1,14 @@
+﻿@model IEnumerable<Web_Forum.Models.Topic>
+@using Web_Forum.Models
+@{
+    ViewBag.Title = "Cozy Forum Index";
+}
+
+<div>
+    <p class="lead">Welcome to our friendly company 😺</p>
+
+    @foreach (var item in Model)
+    {
+        Html.RenderPartial("ShortTopic", item);
+    }
+</div>

@@ -1,0 +1,21 @@
+﻿@using Web_Forum.Models
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Authorization</h2>
+<form method="post">
+
+    <p><label for="login">Email or Login</label></p>
+    <p><input type="text" name="email-login" id="login" /></p>
+
+    <p><label for="password">Password</label></p>
+    <p><input type="password" name="password" id="password" /></p>
+
+    <p><input type="submit" value="Log in"></p>
+
+    <p>Forgot password? <a href="">Recover it</a></p>
+
+    <p>Have no account yet? <a href="">Sign up</a></p>
+</form>

@@ -1,0 +1,46 @@
+﻿@model Web_Forum.Models.Topic
+@using Web_Forum.Models
+@{
+    ViewBag.Title = "Topic";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div>
+
+    <h1>@Html.DisplayFor(modelItem => Model.Title)</h1>
+    <div>
+        <div style="width:20px; height:20px; border-radius:50%; float:left">
+            <i class="@Model.User.FontAwesomeImage"></i>
+        </div>
+        <div>
+
+            @Html.ActionLink(Model.User.Login, "UserProfile", new { login = Model.User.Login })
+            <span>@Html.DisplayFor(modelItem => Model.LastUpdate)</span>
+            <p>@Html.DisplayFor(modelItem => Model.Subject)</p>
+        </div>
+    </div>
+    <p>@Html.DisplayFor(modelItem => Model.Content)</p>
+</div>
+<div>
+    <h3>Answers</h3>
+    <div>
+        @foreach (var comment in Model.Comments)
+        {
+            <div>
+                <div>
+                    @Html.ActionLink(comment.User.Login, "UserProfile", new { login = comment.User.Login })
+                    <span>@Html.DisplayFor(modelItem => comment.CreationDate)</span>
+                </div>
+                @Html.DisplayFor(modelItem => comment.Content)
+                @foreach (var subComment in comment.SubComments)
+                {
+                    <div>
+                        @Html.ActionLink(subComment.User.Login, "UserProfile", new { login = subComment.User.Login })
+                        <span>@Html.DisplayFor(modelItem => subComment.CreationDate)</span>
+                        @Html.DisplayFor(modelItem => comment.Content)
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>
+<hr>

@@ -1,0 +1,25 @@
+﻿@model Web_Forum.Models.User
+@using Web_Forum.Models
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewBag.Title = Model.Login;
+}
+
+<div>
+    <div style="width:20px; height:20px; border-radius:50%; float:left"><i class="@Model.FontAwesomeImage"></i></div>
+    <div>Login</div><div>@Html.DisplayFor(modelItem => Model.Login)</div>
+    <div>Name Surname</div><div>@Html.DisplayFor(modelItem => Model.Name) @Html.DisplayFor(modelItem => Model.Surname)</div>
+    <div>Registration Date</div><div>@Html.DisplayFor(modelItem => Model.RegistrationDate)</div>
+    <div>Likes</div><div>
+    </div>
+    <div>Favorites</div><div>
+
+    </div>
+    <div>Topics</div><div>
+
+    </div>
+    <div>Comments</div><div></div>
+</div>

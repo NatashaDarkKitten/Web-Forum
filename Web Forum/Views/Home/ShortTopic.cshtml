@@ -1,0 +1,16 @@
+﻿@model Web_Forum.Models.Topic
+@using Web_Forum.Models
+<div>
+    <h2>@Html.ActionLink(Model.Title, "Topic", new { id = Model.Id })</h2>
+    <div>
+        <div style="width:20px; height:20px; border-radius:50%; float:left"><i class="@Model.User.FontAwesomeImage"></i></div>
+        <div>
+            @Html.ActionLink(Model.User.Login, "UserProfile", new { login = Model.User.Login })
+            <span>@Html.DisplayFor(modelItem => Model.LastUpdate)</span>
+            <p>@Html.DisplayFor(modelItem => Model.Subject)</p>
+        </div>
+    </div>
+    <p>@Html.DisplayFor(modelItem => Model.Content)</p>
+    @Html.ActionLink("Read more", "Topic", new { id = Model.Id })
+</div>
+<hr>
